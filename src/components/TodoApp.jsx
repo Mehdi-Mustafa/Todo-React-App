@@ -54,7 +54,7 @@ export default function TodoApp() {
         <h1 className="text-3xl font-bold text-white mb-6"> Tasks To Do</h1>
 
         {/* Add Input */}
-        <div className="flex gap-2 mb-5">
+        <div className="flex flex-col sm:flex-row gap-2 mb-5">
           <input
             className="flex-1 border border-gray-700 rounded-lg px-4 py-2 text-sm outline-none focus:border-purple-500 bg-gray-800 text-white placeholder-gray-500"
             type="text"
@@ -64,7 +64,7 @@ export default function TodoApp() {
             onKeyDown={(e) => e.key === "Enter" && addTodo()}
           />
           <button
-            className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition-colors"
+            className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition-colors w-full sm:w-auto"
             onClick={addTodo}
           >
             + Add
@@ -78,8 +78,8 @@ export default function TodoApp() {
               key={f}
               onClick={() => setFilter(f)}
               className={`px-4 py-1 rounded-full text-sm font-medium border transition-colors ${filter === f
-                  ? "bg-purple-600 text-white border-purple-600"
-                  : "bg-transparent text-gray-400 border-gray-600 hover:border-purple-500"
+                ? "bg-purple-600 text-white border-purple-600"
+                : "bg-transparent text-gray-400 border-gray-600 hover:border-purple-500"
                 }`}
             >
               {f}
@@ -130,8 +130,8 @@ export default function TodoApp() {
                   <button
                     onClick={() => toggleTodo(todo.id)}
                     className={`w-5 h-5 rounded-md border-2 flex items-center justify-center flex-shrink-0 transition-colors ${todo.completed
-                        ? "bg-green-500 border-green-500 text-white"
-                        : "border-gray-600 bg-transparent"
+                      ? "bg-green-500 border-green-500 text-white"
+                      : "border-gray-600 bg-transparent"
                       }`}
                   >
                     {todo.completed && (
